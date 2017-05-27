@@ -1,0 +1,7 @@
+youhave: あなたには{{friends.accepted.length}}人の友達がいます
+search: 検索
+added: 追加された
+requests: リクエスト
+suggestions: 提案
+send: リクエストを送信します
+searchfriend: 友達を検索

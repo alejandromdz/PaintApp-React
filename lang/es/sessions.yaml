@@ -1,0 +1,7 @@
+youhave: Tienes {{sessions.owned.length}} sesion(es)!
+add: Agregar session
+owned: Tus sesiones
+other: Otras sesiones
+create: Crear sesiones
+cancel: Cancelar
+size: Dimensiones

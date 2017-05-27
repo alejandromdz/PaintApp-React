@@ -1,0 +1,7 @@
+youhave: あなたは{{sessions.owned.length}}セッションある
+add: セッションを追加します
+owned: あなたのセッション
+other: 他のセッション
+create: セッションを作成
+cancel: キャンセル
+size: サイズ

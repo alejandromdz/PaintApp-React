@@ -1,0 +1,7 @@
+youhave: You have {{friends.accepted.length}} friend(s)!
+search: Search
+added: Added
+requests: Requests
+suggestions: Suggestions
+send: Send request
+searchfriend: Search a friend

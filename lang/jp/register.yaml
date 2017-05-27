@@ -1,0 +1,7 @@
+register: 登録
+email: メール 
+password: パスワード
+signup: サインアップ
+cancel: キャンセル
+confirm: パスワードを確認
+agree: 私は利用規約に同意します

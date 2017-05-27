@@ -1,0 +1,7 @@
+register: Registro
+email: Correo
+password: Contraseña
+signup: Regístrate
+cancel: Cancelar
+confirm: Confirmar contraseña
+agree: Acepto los términos y condiciones

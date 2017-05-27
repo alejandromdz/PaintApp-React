@@ -1,0 +1,7 @@
+youhave: You have {{sessions.owned.length}} session(s)!
+add: Add a session
+owned: Owned sessions
+other: Other sessions
+create: Create session
+cancel: Cancel
+size: Size
