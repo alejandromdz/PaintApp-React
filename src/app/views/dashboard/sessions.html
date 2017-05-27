@@ -1,0 +1,63 @@
+<div class="placeholders">
+    <div class="container">
+        <h1 class="display-2 hidden-xs-down">
+            ${{ sessions.youhave }}$
+        </h1>
+        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#sessionModal">
+            <i class="fa fa-plus" aria-hidden="true"></i> ${{ sessions.create }}$
+    </button>
+    </div>
+    <div class="container" ng-hide="!sessions.owned.length>0">
+        <h1 class="mx-auto">
+           ${{ sessions.owned }}$
+        </h1>
+    <a href="dashboard/sessions/{{session._id}}" ng-repeat="session in sessions.owned" class="text-xs-center" ng-click="setSession(session)">
+        <img ng-src="//placeholdit.imgix.net/~text?txtsize=20&bg=6dbdd6&txtclr=ffffff&txt={{session._id}}&w=150&h=150" class="center-block img-thumbnail"
+            alt="Generic placeholder thumbnail">
+        <p>Created <span am-time-ago="{{session.created| amUtc}}"></span></p>
+    </a>
+    </div>
+    <div class="container" ng-hide="!sessions.others.length>0">
+        <h1 class="mx-auto">
+           ${{ sessions.other }}$
+        </h1>
+    <a href="dashboard/sessions/{{session._id}}" ng-repeat="session in sessions.others" class="text-xs-center" ng-click="setSession(session)">
+        <img ng-src="//placeholdit.imgix.net/~text?txtsize=20&bg=6dbdd6&txtclr=ffffff&txt={{session._id}}&w=150&h=150" class="center-block img-thumbnail"
+            alt="Generic placeholder thumbnail">
+        <p>Created <span am-time-ago="{{session.created| amUtc}}"></span></p>
+    </a>
+    </div>
+</div>
+
+<div class="modal fade" id="sessionModal" tabindex="-1" role="dialog" aria-labelledby="sessionModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form class="form-session" ng-submit="createSession(session)" autocomplete="off">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                    <h4 class="modal-title" id="sessionModalLabel">${{ sessions.add }}$</h4>
+                </div>
+                <div class="modal-body">
+
+                    <h2>${{ sessions.size }}$</h2>
+                    <div class="input-group">
+                        <div class="input-group-addon">X: </div>
+                        <input name="x" type="text" class="form-control" placeholder="0" ng-model="session.x">
+                        <div class="input-group-addon">px</div>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">Y: </div>
+                        <input name="y" type="text" class="form-control" placeholder="0" ng-model="session.y">
+                        <div class="input-group-addon">px</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">${{ sessions.cancel }}$</button>
+                    <button type="submit" class="btn btn-primary">${{ sessions.add }}$</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+
+ 
+ <div class="site-wrapper">
+
+     <div class="dropdown language-selector">
+  <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">${{ index.language}}$
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="../en" ng-click="setLang('en')"><span class="flag-icon flag-icon-us"></span> English</a></li>
+    <li><a href="../es" ng-click="setLang('es')"><span class="flag-icon flag-icon-es"></span> Español</a></li>
+    <li><a href="../jp" ng-click="setLang('jp')"><span class="flag-icon flag-icon-jp"></span> 日本語</a></li>
+  </ul>
+</div>
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Paint App</h3>
+              <nav class="nav nav-masthead">
+                <a class="nav-link" href="login">${{ index.signin }}$</a>
+                <a class="nav-link" href="register">${{ index.register }}$</a>
+                <a class="nav-link" href="sandbox">${{ index.try }}$</a>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">${{ index.welcome }}$</h1>
+            <p class="lead">Hello {{globals.currentUser.username}}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>

@@ -1,0 +1,190 @@
+/*Dashboard Style*/
+
+/* workaround modal-open padding issue */
+body.modal-open {
+    padding-right:0 !important;
+}
+
+
+#sidebar {
+   background: url("../images/pattern.jpg") no-repeat;
+   padding-top:30px;
+   z-index: 0;
+}
+#sidebar a{
+  color:rgba(55, 58, 60, 0.83);
+}
+
+.main {
+  padding:62px;
+}
+
+h1.mx-auto {
+    line-height: 2em;
+}
+.main {
+  a, a:active, a:hover
+  {
+  color:rgba(49, 176, 213, 0.72);
+text-decoration: none;}
+}
+
+li.nav-divider {
+border: rgba(0, 0, 0, 0.25) solid 2px;
+border-radius: 2px;
+height:0px;
+}
+/*
+ * Medium size sticky sidebar
+ * ----------------------------
+ */
+
+@media (min-width: 768px) { 
+   #sidebar {
+   position:fixed;
+}
+
+.main {
+  position:relative;
+  left:26%;
+}
+   }
+
+   /*
+ * Large size sticky sidebar
+ * --------------------------
+ */
+@media (min-width: 992px){ 
+   #sidebar {
+   position:fixed;
+  
+}
+
+.main {
+  position:relative;
+  left:16%;
+}
+   }
+
+
+#sidebar .nav-link.active{
+  background: #8CC84B;
+  border-radius: 5px;
+  color:rgb(76, 112, 138); 
+}
+
+/*
+ * Off Canvas at medium breakpoint
+ * ---------------------------------
+ */
+
+
+@media screen and (max-width: 48em) {
+
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -33%;
+  }
+
+  .row-offcanvas-left.active {
+    left: 33%;
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 33%;
+    height: 100%;
+  }
+}
+
+/*
+ * Off Canvas wider at sm breakpoint
+ * ----------------------------------
+ */
+@media screen and (max-width: 34em) {
+
+
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -45%;
+  }
+
+  .row-offcanvas-left.active {
+    left: 45%;
+  }
+  
+  .sidebar-offcanvas {
+    width: 45%;
+  }
+}
+
+nav.navbar{
+    background: transparent !important;/* fallback for old browsers */
+   
+}
+/* responsive nav stacked liked 3.x */
+@media(max-width:34em) {
+
+    .navbar .navbar-brand {
+        float:none;
+        display: block;
+        
+    }
+    .navbar .navbar-nav>.nav-item {
+        float: none;
+        margin-left: .1rem;
+    }
+    .navbar .navbar-nav {
+        float:none !important;
+    }
+}
+
+.card {
+    overflow:hidden;
+    color: rgba(0, 0, 0, 0.95);
+}
+
+.card-block .rotate {
+    z-index: 8;
+    float: right;
+    height: 100%;
+}
+
+.card-block .rotate i {
+    color: rgba(20, 20, 20, 0.15);
+    position: absolute;
+    left: 0;
+    left: auto;
+    right: -10px;
+    bottom: 0;
+    display: block;
+    -webkit-transform: rotate(-44deg);
+    -moz-transform: rotate(-44deg);
+    -o-transform: rotate(-44deg);
+    -ms-transform: rotate(-44deg);
+    transform: rotate(-44deg);
+}
+
+/* Paint menu */
+.navbar-light .navbar-nav {
+  .nav-link, .nav-link:active, .nav-link:hover, .nav-link:visited {
+    color: rgba(236, 151, 31, 0.6);
+}
+}
+
+[data-target="#shareModal"]{
+  margin-top: 7px;
+}
+
+.table {
+  margin-bottom:0;
+}

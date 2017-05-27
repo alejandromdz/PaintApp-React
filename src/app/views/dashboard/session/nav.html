@@ -1,0 +1,80 @@
+<nav class="navbar navbar-light bg-faded">
+  <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+    aria-expanded="false" aria-label="Toggle navigation"></button>
+  <div class="navbar-toggleable-md" id="navbarResponsive">
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link dropdown-toggle" href="" colorpicker="rgba" colorpicker-size="200" ng-model="color" ng-click="setColor()">Color</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Layers</a>
+        <div class="dropdown-menu">
+          <table class="table table-sm" aria-labelledby="responsiveNavbarDropdown">
+  
+              <tr>
+                <td>
+                  <small>{{currentSession.owner|idToUsername:self.friends.accepted.concat(self)}}</small>
+                </td>
+                <td>
+                  <button type="button" 
+                          ng-click="setLayer($event,currentSession.owner)" 
+                          class="btn btn-sm" 
+                          ng-class="layers[currentSession.owner]?'btn-secondary':'btn-primary'" 
+                          data-toggle="button" 
+                          aria-pressed="false"
+                          autocomplete="off">
+ <i class="fa fa-eye" aria-hidden="true"></i>
+</button>
+                </td>
+              </tr>
+
+              <tr ng-repeat="userId in currentSession.participants">
+                <td>
+                  <small>{{userId|idToUsername:self.friends.accepted.concat(self)}}</small>
+                </td>
+                <td>
+                  <button type="button" 
+                          ng-click="setLayer($event,userId)" 
+                          class="btn btn-sm" 
+                          ng-class="layers[userId]?'btn-secondary':'btn-primary'" 
+                          data-toggle="button" 
+                          aria-pressed="false"
+                          autocomplete="off">
+ <i class="fa fa-eye" aria-hidden="true"></i>
+</button>
+                </td>
+              </tr>
+          
+          </table>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#shareModal">
+            <i class="fa fa-share" aria-hidden="true"></i> Share 
+    </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="shareModalLabel">Add participants</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="friend in friends.accepted">
+             {{friend.username}}
+            <button type="button" class="btn btn-sm btn-link" ng-click="addToSession(currentSession._id,friend._id)">Add to session</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

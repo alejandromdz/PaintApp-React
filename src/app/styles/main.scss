@@ -1,0 +1,44 @@
+@import "cover";
+@import "login-register";
+@import "dashboard";
+@import "chat";
+
+.color-picker{
+  width:248px;
+  height:238px;
+}
+.app-view{
+  height: 100%;
+}
+.modal-dialog
+{
+  color:#777;
+}
+
+[data-id="chat_window_1"]
+{
+  margin-left:20px;
+}
+
+.language-selector{
+  position:absolute;
+  z-index: 2000;
+  left:43%;
+}
+.language-selector button{
+   background-color: transparent;
+   color: #87939C;
+}
+.language-selector button a{
+   background-color: transparent;
+   color: #87939C;
+}
+.language-selector ul{
+  background-color: rgba(230, 230, 230, 0.25);
+    color: white;
+    padding: 5px;
+}
+.online 
+{
+  color:#33ff55
+}

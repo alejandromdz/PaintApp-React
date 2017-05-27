@@ -1,0 +1,63 @@
+<div class="row placeholders">
+    <div class="container">
+        <h1 class="display-2 hidden-xs-down">
+            ${{ friends.youhave }}$
+        </h1>
+
+        <div class="input-group">
+            <form class="form-inline mx-auto" ng-submit="searchFriend(friendString)">
+                <input class="form-control" type="text" placeholder="${{ friends.searchfriend }}$" ng-model="friendString">
+                <span class="input-group-btn">
+       <button type="submit" class="btn btn-outline-success" data-toggle="modal" data-target="#friendModal">
+            <i class="fa fa-search" aria-hidden="true"></i> ${{ friends.search }}$
+    </button>
+      </span>
+            </form>
+        </div>
+
+    </div>
+    <div class="container" ng-hide="!friends.accepted.length>0">
+        <h1 class="mx-auto">
+            ${{ friends.added }}$
+        </h1>
+        <a href="" ng-repeat="friend in friends.accepted" class="text-xs-center">
+            <img ng-src="//placeholdit.imgix.net/~text?txtsize=20&bg=ff9a2c&txtclr=ffffff&txt={{friend.username}}&w=150&h=150" class="center-block img-thumbnail"
+                alt="Generic placeholder thumbnail">
+            <p>Added <span am-time-ago="{{friend.added| amUtc}}"></span></p>
+        </a>
+
+    </div>
+
+    <div class="container" ng-hide="!friends.requested.length>0">
+        <h1 class="mx-auto">
+            ${{ friends.requests }}$
+        </h1>
+        <a href="" ng-repeat="friend in friends.requested" class="text-xs-center">
+            <img ng-src="//placeholdit.imgix.net/~text?txtsize=20&bg=ff9a2c&txtclr=ffffff&txt={{friend.username}}&w=150&h=150" class="center-block img-thumbnail"
+                alt="Generic placeholder thumbnail">
+            <p>Requested <span am-time-ago="{{friend.added| amUtc}}"></span></p>
+        </a>
+
+    </div>
+
+    <div class="modal fade" id="friendModal" tabindex="-1" role="dialog" aria-labelledby="friendModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                    <h4 class="modal-title" id="friendModalLabel">${{ friends.suggestions }}$</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="friend in friendSuggestions">
+                            {{friend.username}}
+                            <button type="button" class="btn btn-sm btn-link" ng-click="sendRequest(friend._id)">${{ friends.send }}$</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,92 @@
+
+
+<form class="form-signin" 
+      autocomplete="off" 
+      name="form" 
+      novalidate 
+      ng-submit="register(user)">
+       <h2 class="form-signin-heading">${{ register.register }}$</h2>
+                <div class="form-group" ng-class="{'has-success':form.userEmail.$valid ,'has-warning':form.userEmail.$dirty && form.userEmail.$error.email ,'has-danger':form.userEmail.$dirty && form.userEmail.$error.required }">
+                    <label class="sr-only">${{ register.email }}$</label>
+                    <input name="userEmail" 
+                           type="email" 
+                           class="form-control form-control-success form-control-warning form-control-danger"
+                           required 
+                           ng-model="user.username"
+                           placeholder="${{ register.email }}$">
+                    <div class="form-control-feedback"  
+                         ng-show="form.userEmail.$dirty && form.userEmail.$error.required">
+                     This field is required
+                    </div>
+                    <div class="form-control-feedback"  
+                         ng-show="form.userEmail.$dirty && form.userEmail.$error.email">
+                     The e-mail is not valid
+                    </div>
+                </div>
+                    <div class="form-group" ng-class="{'has-success': form.userPassword.$valid,'has-warning':(form.userPassword.$dirty && (form.userPassword.$error.minlength||form.userPassword.$error.maxlength)) ,'has-danger':(form.userPassword.$dirty && form.userPassword.$error.required) }">
+                    <label class="sr-only">${{ register.password }}$</label>
+                    <input name="userPassword" 
+                           type="password" 
+                           class="form-control form-control-success form-control-warning form-control-danger"
+                           required 
+                           ng-model="user.password"
+                           ng-minlength="6"
+                           ng-maxlength="12"
+                           placeholder="${{ register.password }}$">
+                    <div class="form-control-feedback" 
+                         ng-show="form.userPassword.$dirty && form.userPassword.$error.required">
+                     This field is required
+                    </div>
+                    <div class="form-control-feedback"  
+                         ng-show="form.userPassword.$dirty && form.userPassword.$error.minlength">
+                     Password must be 6 characters long at least
+                    </div>
+                    <div class="form-control-feedback"  
+                         ng-show="form.userPassword.$dirty && form.userPassword.$error.maxlength">
+                     Password must be 12 characters
+                    </div>
+                    </div>
+      
+                    <div class="form-group" ng-class="{'has-success': form.userPassword.$valid&&(user.passwordConfirm===user.password),'has-warning':(form.passwordConfirm.$valid && user.passwordConfirm!==user.password&&form.userPassword.$valid) ,'has-danger':(form.passwordConfirm.$dirty && form.passwordConfirm.$error.required) }">
+                    <label class="sr-only">Confirm Password:</label>
+                    <input name="passwordConfirm" 
+                           type="password" 
+                           class="form-control form-control-success form-control-warning form-control-danger"
+                           required
+                           ng-model="user.passwordConfirm"
+                           ng-minlength="6"
+                           ng-maxlength="12"
+                           placeholder="${{ register.confirm }}$">
+                    <div class="form-control-feedback"  
+                         ng-show="form.passwordConfirm.$dirty && form.passwordConfirm.$error.required">
+                     This field is required
+                    </div>
+                    <div class="form-control-feedback" 
+                         ng-show="form.passwordConfirm.$valid && user.passwordConfirm!==user.password&&form.userPassword.$valid">
+                     Passwords doesn't match
+                    </div>
+                </div>
+      
+                <div class="form-check" ng-class="{'has-success':form.userAgreed.$valid ,'has-danger':(form.userAgreed.$dirty && form.userAgreed.$error.required) }">
+                    <label class="form-check-label">
+                        <input class="form-check-input form-control-success form-control-warning form-control-danger"
+                               name="userAgreed" 
+                               type="checkbox"
+                               ng-model="user.agreed" 
+                               required>
+                        ${{ register.agree }}$
+                    </label>
+                    <div class="form-control-feedback"     
+                     ng-show="form.userAgreed.$dirty && form.userAgreed.$error.required">
+                     This field is required
+                </div>
+                </div>
+      
+                <button ng-disabled="form.$invalid||user.passwordConfirm!==user.password" 
+                        type="submit" 
+                        class="btn btn-primary btn-block">
+                   ${{ register.signup }}$
+                </button>
+                <a href="/" class="btn btn-link">${{ register.cancel }}$</a>
+            
+        </form>
